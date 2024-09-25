@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+       body{
+            background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/05/Mathematics-equations.jpg');
+            background-size: cover; /* Faz a imagem cobrir toda a área */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            background-position: center;
+             /* Centraliza a imagem */
+            height: 70vh; /* Altura do corpo igual à altura da janela */
+            opacity:85%; 
+        }
+    </style>
+    <title>Calculando o IMC</title>
+</head>
+<body>
+    <main style="background-color:rgb(203, 221, 255); color: black;">
+        <h1>Calcule sua idade</h1>
+        <div>
+            <div>
+                <p><b>Nome:</b></p> <!-- Corrigido fechamento da tag <b> -->
+                <input id="nome" type="text"> <br>
+                
+                <p>Data de nascimento:</p>
+                <input id="data" type="date"> <!-- Alterado para tipo "date" para facilitar entrada de datas --> <br><br>
+                
+                <button type="button" onclick="calcularIdade()">Sua idade é</button> <br>
+                
+                <p style="font-family: cursive; color: rgb(2, 0, 0);" id="resultadoIdade"></p> <!-- Alterado id de "calcularIdade" para "resultadoIdade" -->
+            </div>
+            <div style="background-color: black; width: 28%; margin-left: 36%;"> <a style="color: aliceblue;" href="index09.html">⇦ Back</a></div>
+        </div>
+    </main>
+
+    <script>
+        // Adiciona um evento para quando a tecla "Enter" for pressionada no campo de data
+        document.getElementById('data').addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                calcularIdade(); // Chama a função ao pressionar "Enter"
+            }
+        });
+
+        // Função para calcular a idade
+        function calcularIdade() {
+            // Captura os valores de nome e data de nascimento
+            var nome = document.getElementById('nome').value;
+            var dataNascimento = document.getElementById('data').value;
+            
+            // Verifica se os campos foram preenchidos
+            if (nome === "" || dataNascimento === "") {
+                document.getElementById('resultadoIdade').innerHTML = "Por favor, preencha o nome e a data de nascimento.";
+                return; // Interrompe a função se algum campo estiver vazio
+            }
+
+            // Converte a data de nascimento para um objeto Date
+            var dataNasc = new Date(dataNascimento);
+
+            // Pega a data atual
+            var dataAtual = new Date();
+            
+            // Calcula a diferença em anos
+            var idade = dataAtual.getFullYear() - dataNasc.getFullYear();
+
+            // Verifica se ainda não fez aniversário no ano atual
+            var mesAtual = dataAtual.getMonth();
+            var diaAtual = dataAtual.getDate();
+            if (mesAtual < dataNasc.getMonth() || (mesAtual === dataNasc.getMonth() && diaAtual < dataNasc.getDate())) {
+                idade--; // Se ainda não fez aniversário este ano, subtrai 1 da idade
+            }
+
+            // Exibe a idade calculada
+            document.getElementById('resultadoIdade').innerHTML = nome + ", sua idade é: " + idade + " anos.";
+        }
+    </script>
+</body>
+</html>

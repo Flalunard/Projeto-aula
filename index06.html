@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body{
+      background-image: url('https://img.freepik.com/vetores-gratis/ fundo-de-quadro-de-matematica_1995-357.jpg?size=626&ext=jpg');
+      background-size:cover; /* Faz a imagem cobrir toda a área */
+      background-repeat: no-repeat; /* Não repete a imagem */
+      background-position: center;
+        /* Centraliza a imagem */
+      height: 80vh; /* Altura do corpo igual à altura da janela */
+    }
+    </style>
+    <title>IMC</title>
+</head>
+<body style="background-color: black;">
+    <main style="background-color:rgb(60, 112, 132); color: rgb(255, 255, 255);">
+     <h1>Calculando o IMC</h1>
+     <div>
+       <div>
+         <p><b>Digite o seu peso:</p>
+         <input id="kg" type="text"> kg <br>
+         <p>Digite sua altura:</p>
+         <input id="alt" type="text"> alt <br><br>
+         <button type="button" onclick="calcularIMC()">Calcular IMC</button><br>
+         <p style="font-family: cursive; color: rgb(245, 1, 1);" id="calcularIMC"></p></b> <br>
+       </div>
+        <div style="background-color: black; width: 28%; margin-left: 36%;"> <a style="color: aliceblue;" href="index09.html">⇦ Back</a>
+        </div>
+     </div>
+    </main>
+     <script>
+       document.getElementById('alt').addEventListener('keydown', function(event) {
+    if (event.key == "Enter") 
+      calcularIMC()
+    });
+     function calcularIMC(){
+        var kg  = document.getElementById('kg').value; 
+        var alt = document.getElementById('alt').value;
+        
+        var imc = kg/ (alt * alt);
+        document.getElementById('calcularIMC').innerHTML = "Seu IMC é: " + imc.toFixed(2);
+     }
+     
+     </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-image: url('https://static.vecteezy.com/system/resources/previews/014/930/723/non_2x/modern-cybersecurity-technology-background-with-fingerprint-vector.jpg');
+            background-size: cover; /* Faz a imagem cobrir toda a área */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            background-position: center;
+            /* Centraliza a imagem */
+            height: 70vh; /* Altura do corpo igual à altura da janela */
+        }
+        main{
+            margin-left: 22%;
+            border-radius: 10%;
+            color: azure;
+            text-align: center;
+            width: 50%;
+        }
+        h1
+        {
+            text-align: center;
+        }
+        input{
+            width: 50%;
+        }
+        @media(max-width:780px) {
+          body{
+            background-image: url('https://static.vecteezy.com/system/resources/previews/014/930/723/non_2x/modern-cybersecurity-technology-background-with-fingerprint-vector.jpg');
+            background-size: cover; /* Faz a imagem cobrir toda a área */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            background-position: center;
+                /* Centraliza a imagem */
+            height: 75vh; /* Altura do corpo igual à altura da janela */
+            }
+          main{
+            
+            color: aliceblue;
+            border-radius: 5% ;
+            margin: 19%;
+            width: 50%; 
+            position: relative;
+            justify-items: center;
+
+           }
+          main > form{
+            width:20% ;
+            align-items: center;
+           }
+          h1{
+            text-align: center;
+           }
+          input {
+            width: 500%;
+            margin: 20%;
+           }
+        } 
+  </style>
+    <title>Document</title>
+</head>
+<body>
+   <main >
+    <h1>Acesso</h1>
+    <form onsubmit="return verificarSenha()">
+    
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="submit" accesskey="index08">Enviar</button> 
+    </form>
+    <br>
+    <div> <a style="color: aliceblue; " href="index09.html">⇦ Back</a></div>
+    </main>
+    <script>
+        // Captura o evento keydown para o campo de senha
+        document.getElementById("password").addEventListener("keydown", function(event) {
+            if (event.key == "Enter") { // Verifica se a tecla pressionada é o Enter
+                verificarSenha(); // Chama a função para verificar a senha
+                event.preventDefault(); // Impede o envio do formulário com Enter
+            }
+        });
+    
+        function verificarSenha() {
+            var senhaCorreta = "12345";
+            var senhaDigitada = document.getElementById("password").value;
+            
+            // Verifica se a senha está correta
+        if (senhaDigitada == senhaCorreta) {
+            alert('Acesso permitido');
+            window.location.href = "surpresa.html"; // Redireciona para outra página
+            return false; // Impede o envio do formulário
+        } else {
+            alert('Acesso negado');
+            return false; // Impede o envio do formulário
+        }
+    }
+    </script>
+</body>
+</html>
+
